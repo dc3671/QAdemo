@@ -93,7 +93,7 @@ app.controller('cb_controller', function($scope, $http) {
                     //msgend.scrollTop(div.scrollHeight);
                     //content.scrollTop(content[0].scrollHeight*5);
                     }
-                    console.log($scope.items)
+                    //console.log($scope.items)
                 }
             );
         }

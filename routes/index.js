@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var util = require('util');
+var async = require('async');
 var request = require('request');
 
 /* GET home page. */
@@ -9,40 +10,16 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/search', function(req, res, next) {
-    var question = req.query.question;
-    console.log(req.query);
-    var results = [];
+    var question = req.body.question;
+    //console.log(question);
     var max_score = 0,
         best_al = -1,
         al = ['quiz', 'forum', 'keyword'];
+    var url = al.map(el => util.format('http://10.9.10.15:9201/tsinghuax_v2/%s/_search?q=question:%s', el, encodeURI(question)));
 
-    al.forEach((curr, index) => {
-        var url = util.format('http://10.9.10.15:9201/tsinghuax_v2/%s/_search?q=question:%s', curr, question);
-        console.log(url);
-
-        request(url, (err, reshead, body) => {
-            // for debug
-            body = {
-                'hits': {
-                    'hits': [{
-                        'question': '问题1',
-                        'answer': '回答1',
-                        'score': 10
-                    }, {
-                        'question': '问题2',
-                        'answer': '回答2',
-                        'score': 9
-                    }, {
-                        'question': '问题3',
-                        'answer': '回答3',
-                        'score': 8
-                    }],
-                    'total': 10,
-                    'max_score': 10
-                }
-            };
-            // console.log(body);
-
+    async.map([0, 1, 2], function(index, callback) {
+        request(url[index], (err, head, body) => {
+            body = JSON.parse(body);
             var temp_result = {};
             if (body.hits.total == 0) {
                 temp_result = {
@@ -55,32 +32,36 @@ router.post('/search', function(req, res, next) {
                     best_al = index;
                 }
                 temp_result = {
-                    'hits': body.hits.hits.slice(0, 2),
+                    'hits': body.hits.hits.slice(0, 3),
                     'total': Math.min(3, body.hits.total)
                 };
             }
-            results.push(temp_result);
-            console.log(results);
-            if (results.length == 3) {
-                res.send(results);
-            }
+            callback(null, temp_result);
         });
+    }, function(err, results) {
+        var response = [0, 1];
+        response = response.map(item => results[item]);
+        if (best_al == -1) {
+            response.push({
+                'hits': [],
+                'total': 0
+            });
+        } else {
+            response.push({
+                'hits': results[best_al].hits.slice(0, 1),
+                'total': 1
+            });
+        }
+        response.push(results[2]);
+        res.send(response);
     });
 });
 
 router.use('/search_class', function(req, res, next) {
     var userid = req.query.userid;
-    var url = util.format('http://localhost:7777/recommend/%d', userid);
+    var url = util.format('http://10.9.10.15:7777/recommend/%d', userid);
     request(url, function(response, body) {
-        body = {
-            'courses': [{
-                'course_name': '课程1'
-            }, {
-                'course_name': '课程2'
-            }, {
-                'course_name': '课程3'
-            }]
-        };
+        body = JSON.parse(body);
         res.send(body);
     })
 });
