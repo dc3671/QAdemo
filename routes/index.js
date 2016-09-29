@@ -58,9 +58,10 @@ router.post('/search', function(req, res, next) {
 });
 
 router.use('/search_class', function(req, res, next) {
-    var userid = req.query.userid;
-    var url = util.format('http://10.9.10.15:7777/recommend/%d', userid);
-    request(url, function(response, body) {
+    var question = req.body.question;
+    var url = util.format('http://10.9.10.15:7777/wit/?session=jx666&text=%s', encodeURI(question));
+    console.log(url);
+    request(url, function(err, response, body) {
         body = JSON.parse(body);
         res.send(body);
     })

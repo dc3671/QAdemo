@@ -23,7 +23,7 @@
 
     <script type="text/javascript" src="/static/download/js/jquery.min.397754ba49e9.js"></script>
     <script type="text/javascript" src="/static/download/js/user_track_norequire.0cd1b51c0ca4.js"></script>
-    <link rel="icon" type="image/x-icon" href="/static/images/favicon.a3220c63183d.ico" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
     <link href="/static/download/css/lms-style-vendor.f514c2e00e9f.css" rel="stylesheet" type="text/css" />
 
@@ -414,15 +414,17 @@ var analytics = {
 
         <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="/static/CSS/ate.css">
+
         <div ng-app="chatbot" ng-controller="cb_controller" id="chatbox">
             <!-- DIRECT CHAT PRIMARY -->
             <div class="box box-primary direct-chat direct-chat-primary">
                 <div class="box-header with-border">
                     <h3 class="box-title">正在查询：{[temp_question]}</h3>
                     <div class="box-tools pull-right">
-                        <a class="btn btn-box-tool" ng-class="{active:activeTabIndex==0}" ng-click="activeTabIndex=0"><i class="fa fa-times">作业</i></a>
-                        <a class="btn btn-box-tool" ng-class="{active:activeTabIndex==1}" ng-click="activeTabIndex=1"><i class="fa fa-times">论坛</i></a>
-                        <a class="btn btn-box-tool" ng-class="{active:activeTabIndex==2}" ng-click="activeTabIndex=2"><i class="fa fa-times">AI-BOT</i></a>
+                        <a class="btn btn-box-tool" ng-class="{active:activeTabIndex==0}" ng-click="activeTabIndex=0"><i class="fa fa-comment-o">作业</i></a>
+                        <a class="btn btn-box-tool" ng-class="{active:activeTabIndex==1}" ng-click="activeTabIndex=1"><i class="fa fa-comment-o">论坛</i></a>
+                        <a class="btn btn-box-tool" ng-class="{active:activeTabIndex==2}" ng-click="activeTabIndex=2"><i class="fa fa-comment-o">综合</i></a>
+                        <a class="btn btn-box-tool" ng-class="{active:activeTabIndex==3}" ng-click="activeTabIndex=3"><i class="fa fa-comment-o">AI-BOT</i></a>
                     </div>
                 </div><!-- /.box-header -->
                 <div class="box-body">
@@ -440,7 +442,15 @@ var analytics = {
                             <img class="direct-chat-img" src="/static/images/question.png" ng-if="item.uid==0 && item.index==0" alt="message user image">
                             <img class="direct-chat-img" src="/static/images/boy.jpg" ng-if="item.uid==1" alt="message user image">
                             <div class="direct-chat-text" style="word-break:break-all;">
-                                <div ng-repeat="message in item.message track by $index">{[ message ]}<br></div>
+                                <div ng-if="item.class.search('left forum')!=-1" ng-repeat="message in item.message track by $index" >
+                                    <div ng-if="$last" ng-show="!item.fold">
+                                        {[ message ]}<br>
+                                    </div>
+                                    <div ng-if="!$last" ng-class="folder($index, item)" ng-click="get_folder(this, item)">
+                                        {[ message ]}<br>
+                                    </div>
+                                </div>
+                                <div ng-if="item.class.search('left forum')==-1" ng-repeat="message in item.message track by $index">{[ message ]}<br></div>
                             </div>
                         </div><!-- /.direct-chat-msg -->
                     </div><!--/.direct-chat-messages-->
@@ -457,7 +467,6 @@ var analytics = {
                 </div><!-- /.box-footer-->
             </div><!--/.direct-chat -->
         </div>
-
         <script type="text/javascript">
 $(".chatboxBtn").click(function(){
     var right = $("#chatbox").css("right");
