@@ -4,7 +4,7 @@ var app = new Vue({
         items: [],
         question: '',
         temp_question: '',
-        activeTabIndex: 3,
+        activeTabIndex: 2,
         algos: ['quiz', 'forum', 'synthetic', 'aibot'],
     },
     methods: {
@@ -38,7 +38,6 @@ var app = new Vue({
                     .then(function(response) {
                         console.log(response);
                         for (var al = 0; al < 3; al++) {
-                            // var response = JSON.parse(res);
                             // question
                             var item_right = this._generateItem(1, 'right', al, [this.temp_question]);
                             this.items.push(item_right);

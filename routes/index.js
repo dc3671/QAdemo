@@ -15,7 +15,7 @@ router.post('/search', function(req, res, next) {
     var max_score = 0,
         best_al = -1,
         al = ['quiz', 'forum', 'keyword'];
-    var url = al.map(el => util.format('http://10.9.10.15:9201/tsinghuax_v2/%s/_search?q=question:%s', el, encodeURI(question)));
+    var url = al.map(el => util.format('http://127.0.0.1:9201/tsinghuax_v2/%s/_search?q=question:%s', el, encodeURI(question)));
 
     async.map([0, 1, 2], function(index, callback) {
         request(url[index], (err, head, body) => {
@@ -59,7 +59,7 @@ router.post('/search', function(req, res, next) {
 
 router.use('/search_class', function(req, res, next) {
     var question = req.body.question;
-    var url = util.format('http://10.9.10.15:7777/wit/?session=jx666&text=%s', encodeURI(question));
+    var url = util.format('http://127.0.0.1:7777/wit/?session=jx666&text=%s', encodeURI(question));
     console.log(url);
     request(url, function(err, response, body) {
         body = JSON.parse(body);
