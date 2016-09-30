@@ -21,8 +21,6 @@
 })(this);
     </script>
 
-    <script type="text/javascript" src="/static/download/js/jquery.min.397754ba49e9.js"></script>
-    <script type="text/javascript" src="/static/download/js/user_track_norequire.0cd1b51c0ca4.js"></script>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
     <link href="/static/download/css/lms-style-vendor.f514c2e00e9f.css" rel="stylesheet" type="text/css" />
@@ -46,51 +44,28 @@ window.baseUrl = "/static/";
 }).call(this, require || RequireJS.require);
     </script>
 
-    <script type="text/javascript" src="/static/download/js/require-config-lms.da42d4d4e28b.js"></script>
     <link href="/static/download/css/lms-style-course-vendor.b7ecded0fc78.css" rel="stylesheet" type="text/css" />
     <link href="/static/download/css/lms-style-course.b029d9bf2c18.css" rel="stylesheet" type="text/css" />
 
-    <script type="text/javascript" src="/static/download/js/split.1e256a271150.js"></script>
-    <script type="text/javascript" src="/static/download/js/jquery.truncate.b81308a54759.js"></script>
-    <script type="text/javascript" src="/static/download/js/jquery.ajaxfileupload.27e7569a4c1e.js"></script>
-    <script type="text/javascript" src="/static/download/js/jquery.autocomplete.3bd10d7510d2.js"></script>
-    <script type="text/javascript" src="/static/download/js/jquery.timeago.9605aaf0437d.js"></script>
-    <script type="text/javascript" src="/static/download/js/mustache.2aa68bb79181.js"></script>
-    <script type="text/javascript" src="/static/download/js/URI.min.03b89112e46e.js"></script>
-    <script type="text/javascript" src="/static/download/js/backbone-min.752b6162850f.js"></script>
-    <script type="text/javascript" src="/static/download/js/tooltip_manager.0df6414b1730.js"></script>
-
     <link href="/static/download/css/jquery.autocomplete.09a0b34739a2.css" rel="stylesheet" type="text/css">
 
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/CSS/ate.css">
     <link href="/static/CSS/style.css" rel="stylesheet" type="text/css">
 
     <!-- Chat Related -->
     <!-- <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <!--<link rel="stylesheet" href="/static/CSS/ate.css">-->
 
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
-    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-
-    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-    <script src="static/JS/angular.min.js"></script>
-
-    <script src="static/JS/index.js"></script>
     <!-- End -->
 
     <link rel="stylesheet" href="/static/download/css/tu-identity.52868ed7ae41.css" />
     <link href="http://s.xuetangx.com/resource/css/googlefonts.css" rel='stylesheet' type='text/css'>
-    <div id="ieversion"></div>
-    <div id="ie-banner"></div>
-
-
-    <!--[if lt IE 9]>
-        <script src="/static/js/html5shiv.0ce8f355891c.js"></script>
-    <![endif]-->
-
-
     <!-- dummy segment.io -->
     <script type="text/javascript">
 var analytics = {
@@ -116,26 +91,11 @@ var analytics = {
     </script>
     <!-- end dummy segment.io -->
 
-
-
-
 </head>
 
-<body class="ltr courseware  lang_zh-cn">
+<body id="app" class="ltr courseware  lang_zh-cn">
     <div class="window-wrap" dir="ltr" style="overflow:hidden;position:relative;">
         <a class="nav-skip" href="#seq_content">跳过本内容页</a>
-
-
-        <!--[if IE]>
-            <div class="sr message-accessibility message" id="mathjax-accessibility-message" aria-hidden="true">
-            <p class="copy">这个页面采用MathJax技术来显示数学公式。为了使数学式可用，我们建议使用MathPlayer插件。请访问<a href="//www.dessci.com/en/products/mathplayer/download.htm">MathPlayer下载页面</a> 来为你的浏览器下载插件。</p>
-            </div>
-            <div class="sr message-accessibility message" id="mathplayer-browser-message" aria-hidden="true">
-            <p class="copy">
-            你的浏览器不支持MathPlayer插件。为了使用MathPlayer，请使用IE6到9兼容浏览器。
-            </p>
-            </div>
-        <![endif]-->
 
         <div class="xt-header" id="xt-header">
             <div class="xt-header-inner">
@@ -154,11 +114,6 @@ var analytics = {
             </div>
         </div>
     </div>
-
-
-    <!--[if lte IE 8]>
-        <div class="ie-banner" aria-hidden="true"><strong>警告:</strong> 你的浏览器不能完全支持全部功能. 我们强烈建议您使用 <a href="https://www.google.com/intl/en/chrome/browser/" target="_blank">Chrome</a> 或 <a href="http://www.mozilla.org/en-US/firefox/new/" target="_blank">Firefox</a>.</div>
-    <![endif]-->
 
     <div class="content-wrapper" id="content" style="margin:0">
         <nav class="courseware wrapper-course-material">
@@ -412,45 +367,41 @@ var analytics = {
         </div>
 
 
-        <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/static/CSS/ate.css">
 
-        <div ng-app="chatbot" ng-controller="cb_controller" id="chatbox">
+        <div id="chatbox">
             <!-- DIRECT CHAT PRIMARY -->
             <div class="box box-primary direct-chat direct-chat-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">正在查询：{[temp_question]}</h3>
+                    <h3 class="box-title">正在查询：{{ temp_question }}</h3>
                     <div class="box-tools pull-right">
-                        <a class="btn btn-box-tool" ng-class="{active:activeTabIndex==0}" ng-click="activeTabIndex=0"><i class="fa fa-comment-o">作业</i></a>
-                        <a class="btn btn-box-tool" ng-class="{active:activeTabIndex==1}" ng-click="activeTabIndex=1"><i class="fa fa-comment-o">论坛</i></a>
-                        <a class="btn btn-box-tool" ng-class="{active:activeTabIndex==2}" ng-click="activeTabIndex=2"><i class="fa fa-comment-o">综合</i></a>
-                        <a class="btn btn-box-tool" ng-class="{active:activeTabIndex==3}" ng-click="activeTabIndex=3"><i class="fa fa-comment-o">AI-BOT</i></a>
+                        <a class="btn btn-box-tool" :class="{active:activeTabIndex==0}" @click="activeTabIndex=0"><i class="fa fa-comment-o">作业</i></a>
+                        <a class="btn btn-box-tool" :class="{active:activeTabIndex==1}" @click="activeTabIndex=1"><i class="fa fa-comment-o">论坛</i></a>
+                        <a class="btn btn-box-tool" :class="{active:activeTabIndex==2}" @click="activeTabIndex=2"><i class="fa fa-comment-o">综合</i></a>
+                        <a class="btn btn-box-tool" :class="{active:activeTabIndex==3}" @click="activeTabIndex=3"><i class="fa fa-comment-o">AI-BOT</i></a>
                     </div>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                     <!-- Conversations are loaded here -->
                     <div class="direct-chat-messages" id="direct-chat-messages" style="height:500px">
                         <!-- Message. Default to the left -->
-                        <div class="direct-chat-msg {[ item.class ]}" ng-repeat="item in items track by $index" ng-if="activeTabIndex==item.index">
+                        <div class="direct-chat-msg {{ item.class }}" v-for="item in items" track-by="$index" v-if="activeTabIndex==item.index">
                             <div class="direct-chat-info clearfix">
-
-                                <span class="direct-chat-name pull-left" ng-if="item.uid==0">{[ item.name ]}</span>
-                                <span class="direct-chat-name pull-right" ng-if="item.uid==1">{[ item.name ]}</span>
-
+                                <span class="direct-chat-name pull-left" v-if="item.uid==0">{{ item.name }}</span>
+                                <span class="direct-chat-name pull-right" v-if="item.uid==1">{{ item.name }}</span>
                             </div><!-- /.direct-chat-info -->
-                            <img class="direct-chat-img" src="/static/images/customer-service.jpg" ng-if="item.uid==0 && item.index!=0" alt="message user image">
-                            <img class="direct-chat-img" src="/static/images/question.png" ng-if="item.uid==0 && item.index==0" alt="message user image">
-                            <img class="direct-chat-img" src="/static/images/boy.jpg" ng-if="item.uid==1" alt="message user image">
+                            <img class="direct-chat-img" src="/static/images/customer-service.jpg" v-if="item.uid==0 && item.index!=0" alt="message user image">
+                            <img class="direct-chat-img" src="/static/images/question.png" v-if="item.uid==0 && item.index==0" alt="message user image">
+                            <img class="direct-chat-img" src="/static/images/boy.jpg" v-if="item.uid==1" alt="message user image">
                             <div class="direct-chat-text" style="word-break:break-all;">
-                                <div ng-if="item.class.search('left forum')!=-1" ng-repeat="message in item.message track by $index" >
-                                    <div ng-if="$last" ng-show="!item.fold">
-                                        {[ message ]}<br>
+                                <div v-if="item.class.search('left forum')!=-1" v-for="message in item.message" track-by="$index" >
+                                    <div v-if="$index+1 == item.message.length" v-show="!item.fold">
+                                        {{ message }}<br>
                                     </div>
-                                    <div ng-if="!$last" ng-class="folder($index, item)" ng-click="get_folder(this, item)">
-                                        {[ message ]}<br>
+                                    <div v-if="$index+1 != item.message.length" :class="folder($index, item)" @click="getFolder(this, item)">
+                                        {{ message }}<br>
                                     </div>
                                 </div>
-                                <div ng-if="item.class.search('left forum')==-1" ng-repeat="message in item.message track by $index">{[ message ]}<br></div>
+                                <div v-if="item.class.search('left forum')==-1" v-for="message in item.message" track-by="$index">{{ message }}<br></div>
                             </div>
                         </div><!-- /.direct-chat-msg -->
                     </div><!--/.direct-chat-messages-->
@@ -459,9 +410,9 @@ var analytics = {
                 </div><!-- /.box-body -->
                 <div class="box-footer">
                     <div class="input-group">
-                        <input type="text" name="question" class="form-control" ng-model="question" ng-keypress="press_enter($event)">
+                        <input type="text" name="question" class="form-control" v-model="question" @keyup.enter="getAnswer">
                         <span class="input-group-btn">
-                            <button type="button" class="btn btn-primary btn-flat" ng-click="get_answer()" >Send</button>
+                            <button type="button" class="btn btn-primary btn-flat" @click="getAnswer" >Send</button>
                         </span>
                     </div>
                 </div><!-- /.box-footer-->
@@ -495,52 +446,28 @@ $(".chatboxBtn").click(function(){
                 </div>
             </div>
         </footer>
-        <!--
-            <script id="fixedsideBar" type="text/template">
-<div class="xt_fixed_sidebar" style="display: none;">
-        <ul class="fixed_sidebar_ul">
-
-            <li id="a_feedback" class="xt_fixed_sidebar_8_2x">
-                <a class="text_description moreline" style="display: none;" href="javascript:" target="blank">
-                    <p>意见</p>
-                    <p>反馈</p>
-                </a>
-            </li>
-            <li id="a_gototop" class="xt_fixed_sidebar_go_to_top">
-                <a class="text_description moreline" style="display: none;">
-                    <p>返回</p>
-                    <p>顶部</p>
-                </a>
-            </li>
-        </ul>
     </div>
-
-            </script>
-            -->
-    </div>
-    <script src="/static/download/js/fixedsidebar.74e0b3d9bd56.js"></script>
-
-
-
-    <script type="text/javascript" src="/static/download/js/jquery.scrollTo-1.4.2-min.4aa3e2dfa312.js"></script>
-
-    <script type="text/javascript" src="/static/download/js/jquery.flot.d3d45ff0c6a8.js"></script>
-
-    <script type="text/javascript" src="/static/download/js/codemirror-compressed.dd4b74f7c5fe.js"></script>
-
-    <script type="text/javascript" src="/static/download/js/lms-courseware.45ce328973cd.js" charset="utf-8"></script>
-
-    <script type="text/javascript" src="/static/download/js/discussion.eecb75d6f6d6.js" charset="utf-8"></script>
-
-    <!-- This must appear after all mathjax-config blocks, so it is after the imports from the other templates.
-        It can't be run through static.url because MathJax uses crazy url introspection to do lazy loading of
-        MathJax extension libraries -->
-
-        <!-- TODO: http://docs.jquery.com/Plugins/Validation -->
-        <script type="text/javascript">
-//document.write('\x3Cscript type="text/javascript" src="' +
-//document.location.protocol + '//www.youtube.com/iframe_api">\x3C/script>');
-        </script>
-
 </body>
+<script src="/static/download/js/fixedsidebar.74e0b3d9bd56.js"></script>
+<script type="text/javascript" src="/static/download/js/jquery.scrollTo-1.4.2-min.4aa3e2dfa312.js"></script>
+<script type="text/javascript" src="/static/download/js/jquery.flot.d3d45ff0c6a8.js"></script>
+<script type="text/javascript" src="/static/download/js/codemirror-compressed.dd4b74f7c5fe.js"></script>
+<script type="text/javascript" src="/static/download/js/lms-courseware.45ce328973cd.js" charset="utf-8"></script>
+<script type="text/javascript" src="/static/download/js/discussion.eecb75d6f6d6.js" charset="utf-8"></script>
+<script type="text/javascript" src="/static/download/js/require-config-lms.da42d4d4e28b.js"></script>
+<script type="text/javascript" src="/static/download/js/split.1e256a271150.js"></script>
+<script type="text/javascript" src="/static/download/js/jquery.truncate.b81308a54759.js"></script>
+<script type="text/javascript" src="/static/download/js/jquery.ajaxfileupload.27e7569a4c1e.js"></script>
+<script type="text/javascript" src="/static/download/js/jquery.autocomplete.3bd10d7510d2.js"></script>
+<script type="text/javascript" src="/static/download/js/jquery.timeago.9605aaf0437d.js"></script>
+<script type="text/javascript" src="/static/download/js/mustache.2aa68bb79181.js"></script>
+<script type="text/javascript" src="/static/download/js/URI.min.03b89112e46e.js"></script>
+<script type="text/javascript" src="/static/download/js/backbone-min.752b6162850f.js"></script>
+<script type="text/javascript" src="/static/download/js/tooltip_manager.0df6414b1730.js"></script>
+<script type="text/javascript" src="/static/download/js/jquery.min.397754ba49e9.js"></script>
+<script type="text/javascript" src="/static/download/js/user_track_norequire.0cd1b51c0ca4.js"></script>
+
+<script src="https://cdn.jsdelivr.net/vue/1.0.27/vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/vue.resource/1.0.3/vue-resource.min.js"></script>
+<script src="static/JS/index.js"></script>
 </html>
